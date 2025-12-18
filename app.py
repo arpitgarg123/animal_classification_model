@@ -22,13 +22,14 @@ st.set_page_config(
 # =============================
 @st.cache_resource
 def load_model():
-    model = tf.keras.models.load_model(
-        "model.keras",
+    return tf.keras.models.load_model(
+        "model.keras",   # or "model.h5"
         compile=False,
-        custom_objects={"MobileNetV2": MobileNetV2}
+        custom_objects={
+            "MobileNetV2": MobileNetV2
+        }
     )
-    return model
-
+    
 @st.cache_data
 def load_classes():
     with open("class_names.pkl", "rb") as f:
