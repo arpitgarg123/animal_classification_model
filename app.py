@@ -31,9 +31,9 @@ def load_model():
     
 @st.cache_data
 def load_classes():
-    # Return the class names directly (Italian labels)
-    return ["cane", "cavallo", "elefante", "farfalla", "gatto", 
-            "gallina", "mucca", "pecora", "ragno", "scoiattolo"]
+    # Return the class names directly (Italian labels) in alphabetical order
+    return ["cane", "cavallo", "elefante", "farfalla", "gallina", 
+            "gatto", "mucca", "pecora", "ragno", "scoiattolo"]
 
 model = load_model()
 class_names = load_classes()
