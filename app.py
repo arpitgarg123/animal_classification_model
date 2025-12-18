@@ -22,8 +22,11 @@ st.set_page_config(
 # =============================
 @st.cache_resource
 def load_model():
-    # compile=False = inference mode (stable)
-    model = tf.keras.models.load_model("model.keras", compile=False)
+    model = tf.keras.models.load_model(
+        "model.keras",
+        compile=False,
+        custom_objects={"MobileNetV2": MobileNetV2}
+    )
     return model
 
 @st.cache_data
