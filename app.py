@@ -1,7 +1,6 @@
 import streamlit as st
 import tensorflow as tf
 import numpy as np
-import pickle
 from PIL import Image
 
 # MobileNet imports (IMPORTANT)
@@ -32,8 +31,9 @@ def load_model():
     
 @st.cache_data
 def load_classes():
-    with open("class_names.pkl", "rb") as f:
-        return pickle.load(f)
+    # Return the class names directly (Italian labels)
+    return ["cane", "cavallo", "elefante", "farfalla", "gatto", 
+            "gallina", "mucca", "pecora", "ragno", "scoiattolo"]
 
 model = load_model()
 class_names = load_classes()
